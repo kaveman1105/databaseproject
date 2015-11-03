@@ -167,9 +167,9 @@
       </div>
 
       <!-- Jumbotron -->
-      <div class="jumbotron" style="background:url(images/success.jpg);">
-        <h1 style="font-weight: 300; color:white;"><?php echo $greetUser ?></h1>
-        <p><a class="btn btn-lg btn-success" href="#calendar" role="button">Get started today</a></p>
+     <div class="jumbotron" >
+		<img src="images/test.jpg" alt="Smiley face"  height="60%" width="100%">
+       <!--  <p><a class="btn btn-lg btn-success" href="#calendar" role="button">Get started today</a></p> -->
       </div>
 	  	<form name="form4" method="post" action="view_single_event_public.php">
 			<tr>
