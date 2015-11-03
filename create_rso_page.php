@@ -33,15 +33,27 @@
           <div class="form-group">
 
 			<input name="rso_name" type="text" id="rso_name" placeholder="RSO Name" class="form-control input-lg" >
-		</div>
-		<hr >
-          <div class="row">
+          </div>
+          <p><span class="form-group">
+            <input name="rso_member" type="text" id="rso_name2" placeholder="member 1" class="form-control input-lg" >
+            </span><span class="form-group">
+            <input name="rso_member" type="text" id="rso_name3" placeholder="member 2" class="form-control input-lg" >
+            </span><span class="form-group">
+            <input name="rso_member" type="text" id="rso_name4" placeholder="member 3" class="form-control input-lg" >
+            </span><span class="form-group">
+            <input name="rso_member" type="text" id="rso_name5" placeholder="member 4" class="form-control input-lg" >
+          </span></p>
+          <p>&nbsp; </p>
+          <div class="row"><span class="col-xs-6 col-sm-6 col-md-6">
+            <input type="submit" name="Submit" value="Create" class="btn btn-lg btn-primary btn-block">
+          </span>
             <div class="col-xs-6 col-sm-6 col-md-6">
-              <input type="buton" onclick="window.history.back();" value="Back" class="btn btn-lg btn-success btn-block">
+              <p>
+                <input type="buton" onClick="window.history.back();" value="Back" class="btn btn-lg btn-success btn-block">
+              </p>
+              <p>&nbsp; </p>
             </div>
-			 <div class="col-xs-6 col-sm-6 col-md-6"> 
-	<input type="submit" name="Submit" value="Create" class="btn btn-lg btn-primary btn-block">
-	</div>
+			 <div class="col-xs-6 col-sm-6 col-md-6"></div>
 	</div>
 	</fieldset>
 	</form>
