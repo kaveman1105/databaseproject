@@ -50,15 +50,6 @@
 			$sql="SELECT * FROM events WHERE uid='$uni_id'";
 			$result = mysql_query($sql) or die( mysql_error() );
 			
-			// Populating calendar with university events
-			// while ($row = mysql_fetch_array($result)) {
-			// 	$title = $row['name'];
-			// 	$d = dateFormat($row['date']);
-			// 	$time = $row['time'];
-			// 	$date = $d . "T" . $time .":00";
-			// 	$data[] = array('title' => $title, 'start' => $date, 'backgroundColor' => "red");
-			// }
-			
 			// Finding the users RSO
 			$sql_rsocheck="SELECT rso_name FROM members WHERE username='$user_logged_in'";
 			$result_rsocheck = mysql_query($sql_rsocheck) or die( mysql_error() );
@@ -68,69 +59,9 @@
 			// Finding the RSO events
 			$sql="SELECT * FROM events WHERE rso_name='$rso_id'";
 			$result = mysql_query($sql) or die( mysql_error() );
-			
-			// Populating calendar with RSO events
-			// while ($row = mysql_fetch_array($result)) {
-			// 	$title = $row['name'];
-			// 	$d = dateFormat($row['date']);
-			// 	$time = $row['time'];
-			// 	$date = $d . "T" . $time .":00";
-			// 	$data[] = array('title' => $title, 'start' => $date, 'backgroundColor' => "green");
-			// }
-			
-			// // Writing into the JSON file
-			// $file = fopen('calendar.json','w+')
-			// 	or die("Error opening output file in partials");
-			// fwrite($file, json_encode($data)); 
-			// fclose($file);
-		
-			// function dateFormat($date)
-			// {
-			// 	return substr($date, -4) . '-' . substr($date, 0, 2) . '-' . substr($date, 3, 2);
-			// }
  
 		?>
-		<script>
-     
-				// // Get the JSON
-				// $(document).ready(function() {
-				 
-				// $.extend({
-				// 	getValues: function(url) {
-				// 		var result = null;
-				// 		$.ajax({
-				// 			url: url,
-				// 			type: 'get',
-				// 			dataType: 'json',
-				// 			async: false,
-				// 			success: function(data) {
-				// 				result = data;
-				// 			}
-				// 		});
-				// 		return result;
-				// 	}
-				// });
-			 
-				// events = $.getValues("calendar.json");
-				 
-				// // Display the Calendar
-				// $('#calendar').fullCalendar({
-				// 	header: {
-				// 		left: 'prev,next today',
-				// 		center: 'title', 
-				// 		right: 'month,agendaWeek,agendaDay'
-				// 	},
-				// 	editable: true,
-				// 	eventLimit: true, // allow "more" link when too many events
-				// 	events: events,
-				// 	loading: function(bool) {
-				// 		$('#loading').toggle(bool);
-				// 	}
-				// });
-					 
-				// });
-		 
-		</script>
+
 		<style>
 
 			body {
@@ -139,12 +70,7 @@
 				font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
 				font-size: 14px;
 			}
-/*
-			#calendar {
-				max-width: 900px;
-				margin: 0 auto;
-			}
-*/
+
 		</style>
 	</head>
 	<body>
