@@ -86,16 +86,24 @@
 		if (!$result) {
 			die("Query to show fields from table failed");
 		}
+		
 		$row = mysql_fetch_array($result, MYSQL_NUM);
+
 		$result = mysql_query("SELECT * FROM events WHERE rso_name='$row[0]'");
 		if (!$result) {
 			die("Query to show fields from table failed");
 		}
-		
+		$locations = mysql_query("SELECT name, lat, longitude FROM events WHERE rso_name='$row[0]'");
+		if (!locations) {
+			die("Query to lat and lng");
+		}
+		$array = array();
+		while($row1 = mysql_fetch_array($locations)){
+			$array = array_merge($array, $row1);
+		}
 	?>
 
-	<select name="e_name" id="e_name" class="form-control" >
-
+	<select name="e_name" id="e_name" class="form-control" onchange="updateMap()" >
 	<?php
 		while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 	?>
@@ -106,6 +114,35 @@
 		}
 	?>
 	</select>
+
+	<script type="text/javascript">
+	function updateMap(){
+		
+		var test = <?php echo json_encode($array); ?>;		
+		var x = document.getElementById("e_name").value;
+		var i = 0;
+		while(test[i] != x){
+			i += 3;
+		}
+		
+		var lat = parseFloat(test[i+1]);
+		var lng = parseFloat(test[i+2]);
+		
+		var myLatLng = {lat, lng};
+		
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+
+    title: test[i]
+  });
+	}</script>
 	<hr>
   <div id="map" style="width: 500px; height: 400px; margin:auto;"></div>
   <hr>

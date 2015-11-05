@@ -160,7 +160,7 @@
 		<hr>
 	</form>
 	<div class="form-group">
-		  <input type="button" onclick="window.location.replace('#');" value="Home" class="btn btn-lg btn-success btn-block">
+		  <input type="button" onclick="window.history.go(-2);" value="Home" class="btn btn-lg btn-success btn-block">
 	</div>
 	</div>
 	</div>
