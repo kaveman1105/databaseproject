@@ -136,12 +136,21 @@
     center: myLatLng
   });
 
+   var infowindow = new google.maps.InfoWindow({
+    content: test[i]
+  });
+
   var marker = new google.maps.Marker({
     position: myLatLng,
     map: map,
 
     title: test[i]
   });
+
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+
 	}</script>
 	<hr>
   <div id="map" style="width: 500px; height: 400px; margin:auto;"></div>
@@ -160,18 +169,22 @@
 			document.write(loc[key].name + "<br>");
 		}
 	}
+	var starting_point = <?php echo json_encode($array); ?>;
+	var lat = parseFloat(starting_point[1]);
+	var lng = parseFloat(starting_point[2]);
 	
+	var myLatLng = {lat, lng};	
 
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
-      center: new google.maps.LatLng(28.553677, -81.351903),
+      zoom: 14,
+      center: myLatLng,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
     var infowindow = new google.maps.InfoWindow();
 	navigator.geolocation.getCurrentPosition(function(position) {
 		 new google.maps.Marker({
-					position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude), 
+					position: myLatLng,
 					map: map,
 					icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
 		  });
@@ -181,7 +194,7 @@
 
     for (i = 0; i < locations.length; i++) {  
       marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        position: myLatLng,
         map: map
       });
 
