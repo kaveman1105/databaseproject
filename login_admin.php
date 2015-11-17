@@ -129,8 +129,6 @@
 			</select>
 		<input type="submit" name="Submit" value="View">
 		</form>
-	  
-		<!-- <div id='calendar'></div> -->
 		
 	</body>
 </html>
